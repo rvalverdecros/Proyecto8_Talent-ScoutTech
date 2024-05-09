@@ -99,15 +99,19 @@ a) Para ver si hay un problema de XSS, crearemos un comentario que muestre un al
 
 ![Untitled](img_Proyecto8/Untitled%202.png)
 
-| Introduzco el Mensaje | <script>alert('consulta')</script> |
-| --- | --- |
-| En el formulario de la página  | En la página de Gloria Calleja:
-/show_comments.php?id=5 |
+* Introduzco el mensaje: 
+
+```html
+<script>alert('consulta')</script>
+
+```
+* En el formulario de la página: En la página de Gloria Calleja: /show_comments.php?id=5
+
 
 b) Por qué dice "&" cuando miráis un link(como elque aparece a la portada de esta aplicación pidiendo que realices un donativo) con parámetros GETdentro de código html si en realidad el link es sólo con "&" ?
 
-| Explicación | Se utiliza el símbolo & para enviar parámetros dentro del enlace en caso del donate, iría dirigido a http://www.donate.co con los parámetros ‘amount=100’ y ‘destination=ACMEScouting/’ |
-| --- | --- |
+* Explicación: Se utiliza el símbolo & para enviar parámetros dentro del enlace en caso del donate, iría dirigido a http://www.donate.co con los parámetros ‘amount=100’ y ‘destination=ACMEScouting/’
+
 
 c) Explicad cuál es el problema de show_comments.php, y cómo lo arreglaríais. Para resolver este apartado, podéis mirar el código fuente de esta página.
 
