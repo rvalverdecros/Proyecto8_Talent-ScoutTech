@@ -115,11 +115,20 @@ b) Por qué dice "&" cuando miráis un link(como elque aparece a la portada de e
 
 c) Explicad cuál es el problema de show_comments.php, y cómo lo arreglaríais. Para resolver este apartado, podéis mirar el código fuente de esta página.
 
-| ¿Cuál es el problema? | El código original no está protegiendo adecuadamente la información que recibe de los usuarios a través de la URL.  UN atacante, podría causar que el código funcione incorrectamente o incluso que realice acciones no deseadas en la base de datos. |
-| --- | --- |
-| Sustituyo el código de la/las líneas… | $query = "SELECT commentId, username, body FROM comments C, users U WHERE C.playerId =".$_GET['id']." AND U.userId = C.userId order by C.playerId desc";
- |
-| …por el siguiente código… | $query = "SELECT commentId, username, body FROM comments C, users U WHERE C.playerId = ? AND U.userId = C.userId ORDER BY C.playerId DESC"; |
+* ¿Cuál es el probelma?: El código original no está protegiendo adecuadamente la información que recibe de los usuarios a través de la URL.  UN atacante, podría causar que el código funcione incorrectamente o incluso que realice acciones no deseadas en la base de datos.
+
+* Sustituyo el código de la/las líneas…: 
+```html
+$query = "SELECT commentId, username, body FROM comments C, users U WHERE C.playerId =".$_GET['id']." AND U.userId = C.userId order by C.playerId desc";
+
+```
+
+*  …por el siguiente código…: 
+```html
+$query = "SELECT commentId, username, body FROM comments C, users U WHERE C.playerId = ? AND U.userId = C.userId ORDER BY C.playerId DESC";
+
+```
+
 
 d) Descubrid si hay alguna otra página que esté afectada por esta misma vulnerabilidad. En caso positivo, explicad cómo lo habéis descubierto.
 
