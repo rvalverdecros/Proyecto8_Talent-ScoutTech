@@ -1,6 +1,13 @@
 # Informe Técnico Proyecto 8: Talent ScoutTech
 
-# Parte 1- SQLi
+## **Índice**
+1. [Parte 1- SQLi](#sqli)    
+2. [Parte 2- XSS](#xss)
+3. [Parte 3- Control de acceso, autenticación y sesiones de usuarios](#control)  
+4. [Parte 4- Servidores web](#web)
+5. [Parte 5- CSRF](#csrf)
+
+# Parte 1- SQLi <div id='sqli' />
 
 La página no permite añadir jugadores a usuarios no autenticados, un formulario nos exige que introduzcamos un usuario y contraseña válidos. Lo primero que haremos es comprobar que este formulario es vulnerable a una inyección y aprovecharlo para saltarnos esta protección.
 
@@ -91,7 +98,7 @@ $stmt->execute();
 
 Para poder hacer un ataque a esa vulnerabilidad, podemos simplemente, manipular la cookie ‘userId’ y con ello, se podría suplantar la identidad de otro usuario y enviar comentarios en su nombre.
 
-# Parte 2- XSS
+# Parte 2- XSS <div id='xss' />
 
 En vistas de los problemas de seguridad que habéis encontrado, empezáis a sospechar que esta aplicación quizás es vulnerable a XSS (Cross Site Scripting).
 
@@ -138,7 +145,7 @@ d) Descubrid si hay alguna otra página que esté afectada por esta misma vulner
 
 ![Untitled](img_Proyecto8/Untitled%203.png)
 
-# Parte 3- **Control de acceso, autenticación y sesiones de usuarios**
+# Parte 3- **Control de acceso, autenticación y sesiones de usuarios** <div id='control' />
 
 a) En el ejercicio 1, hemos visto cómo era inseguro el acceso de los usuarios a la aplicación. En la página de ***register.php*** tenemos el registro de usuario. ¿Qué medidas debemos implementar para evitar que el registro sea inseguro? Justifica esas medidas e implementa las medidas que sean factibles en este proyecto.
 
@@ -173,7 +180,7 @@ e) Por último, comprobando el flujo de la sesión del usuario. Analiza si está
 - Cerrar sesión de manera segura: Proporcionar una opción para que los usuarios cierren sesión de manera segura, eliminando cualquier token de sesión almacenado en la cookie o en el servidor.
 - Proteger contra ataques de fuerza bruta: Implementar mecanismos para prevenir ataques de fuerza bruta, como el bloqueo temporal de cuentas después de un número determinado de intentos fallidos de inicio de sesión.
 
-# Parte 4- **Servidores web**
+# Parte 4- **Servidores web** <div id='web' />
 
 ¿Qué medidas de seguridad se implementaríais en el servidor web para reducir el riesgo a ataques?
 
@@ -185,7 +192,7 @@ e) Por último, comprobando el flujo de la sesión del usuario. Analiza si está
 - Auditorías de seguridad regulares: Realizar auditorías de seguridad periódicas para evaluar la postura de seguridad del servidor, identificar posibles vulnerabilidades y áreas de mejora, y garantizar el cumplimiento de los estándares de seguridad.
 - Educación y concienciación en seguridad: Capacitar al personal del servidor web en prácticas de seguridad cibernética, concienciar sobre las amenazas y mejores prácticas de seguridad, y fomentar una cultura de seguridad en toda la organización.
 
-# Parte 5- CSRF
+# Parte 5- CSRF <div id='csrf' />
 
 Ahora ya sabemos que podemos realizar un ataque XSS. Hemos preparado el siguiente enlace: [http://web.pagos/donate.php?amount=100&receiver=attacker,](http://web.pagos/donate.php?amount=100&receiver=attacker) mediante el cual, cualquiera que haga click hará una donación de 100€ al nuestro usuario (con nombre 'attacker') de la famosa plataforma de pagos online 'web.pagos' (Nota: como en realidad esta es una dirección inventada, vuestro navegador os devolverá un error 404).
 
